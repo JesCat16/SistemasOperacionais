@@ -1,0 +1,5 @@
+com\mycompany\simulacao\Consumidor.class
+com\mycompany\simulacao\Fabrica.class
+com\mycompany\simulacao\Produtor.class
+com\mycompany\simulacao\BufferCircular.class
+com\mycompany\simulacao\ProcessUtil.class
