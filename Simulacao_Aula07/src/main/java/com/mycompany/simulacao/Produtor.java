@@ -20,8 +20,8 @@ public class Produtor implements Runnable{
     public void run() {
         int dado = 0;
         while(true){
-            ProcessUtil.atrasar(2);
             buffer.inserir(dado);
+            ProcessUtil.atrasar(2);
         }
     }
     

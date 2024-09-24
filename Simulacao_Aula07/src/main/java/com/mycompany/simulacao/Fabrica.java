@@ -12,10 +12,10 @@ public class Fabrica {
     public static void main(String[] args) {
         BufferCircular buffer = new BufferCircular();
         
-        Thread produtora = new Thread(new Produtor(buffer));
-        Thread consumidor = new Thread(new Consumidor(buffer));
+        Thread t1 = new Thread(new Produtor(buffer));
+        Thread t2 = new Thread(new Consumidor(buffer));
         
-        produtora.start();
-        consumidor.start();
+        t1.start();
+        t2.start();
     }
 }

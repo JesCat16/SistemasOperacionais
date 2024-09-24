@@ -21,7 +21,7 @@ public class Consumidor implements Runnable{
         int dado = 0;
         while(true){
             ProcessUtil.atrasar(2);
-            buffer.inserir(dado);
+            buffer.remove();
         }
     }
     

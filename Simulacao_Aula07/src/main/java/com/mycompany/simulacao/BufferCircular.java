@@ -21,26 +21,36 @@ public class BufferCircular {
         contador = 0;
     }
     
-    public void inserir(int item){
+    public synchronized void inserir(int item) {
         int tempoEspera = 0;
         while(contador == BUFFER_SIZE){
-            System.out.println(tempoEspera++ + " ***\r");;
+            //System.out.println(tempoEspera++ + " ***\r");
+            try{
+                wait();
+            }catch(InterruptedException e){}
+            ;
         }
         buffer[in] = item;
         in = (in + 1) % BUFFER_SIZE;
         contador++;
         System.out.println("\nProdutor: Contador: " + contador);
+        notify();
     }
     
-    public int remove(){
+    public synchronized int remove(){
         int tempoEspera = 0;
         while(contador == 0){
-            System.out.println(tempoEspera++ + "###\r");
+            //System.out.println(tempoEspera++ + "###\r");
+            try{
+                wait();
+            }catch(InterruptedException e){}
+            ;
         }
         int item = buffer[out];
         out = (out + 1) % BUFFER_SIZE;
         contador--;
         System.out.println("\nConsumidor: Contador: " + contador);
+        notify();
         return item;
     }
     
