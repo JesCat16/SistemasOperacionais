@@ -17,7 +17,7 @@ public class Empresa {
         max_producao = 15;
     }
     
-    public boolean trabalhar(int id){
+    public synchronized boolean trabalhar(int id){
         if (producao >= max_producao){
             return false;
         }
